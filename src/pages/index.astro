@@ -1,6 +1,7 @@
 ---
-export const prerender = true
+export const prerender = true;
 
+import About from '../components/About.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -14,24 +15,31 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<main>
 			<!-- A div that spans 3/4 of the screen height and centers all content -->
-			<div class="h-screen-full flex flex-col justify-center items-center">
+			<div class="h-screen flex flex-col justify-center items-center">
+				<div class="m-auto w-2/5">
 
-				<h1 class="font-harmonia text-3xl">
-					Hi, <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">I'm Simon</span>
-				</h1>
+					<h1 class="font-harmonia text-3xl text-center">
+						Hi, <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">I'm Simon</span>
+					</h1>
+	
+					<!-- A small gap between the header and text -->
+					<div class="h-2"></div>
+					
+					<p class="text-xl font-harmonia text-center">
+						I'm a software engineering student interested in finding elegant solutions to complex and interesting problems.
+					</p>
 
-				<!-- A small gap between the header and text -->
-				<div class="h-2"></div>
-				
-				<p class="w-screen-1/2 text-xl font-harmonia text-center">
-					I'm a software engineering student interested in finding elegant solutions to complex and interesting problems.
-				</p>
+					<div class="h-1/2"></div>
 
+					<div class="text-center">
+						<!-- Unicode downward triangle character -->
+						<a href="#about" class="text-4xl hover:text-5xl">&#9662;</a>
+					</div>
+
+				</div>
 			</div>
-
-
-			
 		</main>
+		<About />
 		<!-- <Footer /> -->
 	</body>
 </html>
