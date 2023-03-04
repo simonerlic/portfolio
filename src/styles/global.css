@@ -10,10 +10,20 @@
 	src: url("../fonts/HarmoniaSansStd-SemiBd.otf");
 }
 
+@font-face {
+	font-family: "Harmonia Sans Regular";
+	font-style: normal;
+	src: url("../fonts/HarmoniaSansStd-Regular.otf");
+}
+
 /* Default transition is easy ease */
 * {
 	transition: all 0.3s ease;
 	scroll-behavior: smooth;
+}
+
+a:link {
+	text-decoration: none;
 }
 
 body {
@@ -36,12 +46,6 @@ h6,
 strong,
 b {
 	color: #222;
-}
-a {
-	color: #3273dc;
-}
-nav a {
-	margin-right: 10px;
 }
 textarea {
 	width: 100%;

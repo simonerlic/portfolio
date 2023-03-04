@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				'harmonia': ['Harmonia Sans', 'sans-serif'],
+				'harmonia-regular': ['Harmonia Sans Regular', 'sans-serif'],
 			},
 		},
 	},
