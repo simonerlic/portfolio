@@ -1,6 +1,6 @@
-<div class="grid grid-flow-row-dense grid-cols-3 grid-rows-2">
+<div class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 ml-4 mr-4 mb-4">
     <!-- Programming Languages -->
-    <div class="min-w-sm max-h-sm rounded-lg overflow-hidden shadow-lg m-4">
+    <div class="rounded-lg overflow-hidden border-gray-50 border-2 shadow-md hover:shadow-lg">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Languages</span></div>
             <p class="text-left">
@@ -14,10 +14,11 @@
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Java</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Javascript</span>
         </div>
+
     </div>
 
     <!-- Education -->
-    <div class="min-w-sm col-span-2 max-h-sm rounded-lg overflow-hidden shadow-lg m-4">
+    <div class="min-w-sm col-span-2 rounded-lg overflow-hidden border-gray-50 border-2 shadow-md hover:shadow-lg">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Education</span></div>
             <p class="text-left">
@@ -34,7 +35,7 @@
     </div>
 
     <!-- Experience -->
-    <div class="min-w-sm max-h-sm col-span-2 rounded-lg overflow-hidden shadow-lg m-4">
+    <div class="col-span-2 rounded-lg overflow-hidden border-gray-50 border-2 shadow-md hover:shadow-lg">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Work Experience</span></div>
             <p class="text-left">
@@ -50,27 +51,10 @@
         </div>
     </div>
 
-    <!-- Projects -->
-    <div class="min-w-sm max-h-sm rounded-lg overflow-hidden shadow-lg m-4">
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Languages</span></div>
-            <p class="text-left">
-                I've had experience with a few different languages.
-            </p>
-        </div>
-        <div class="px-6 pt-2 pb-4">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Python</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">C#</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">C++</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Java</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Javascript</span>
-        </div>
-    </div>
-
     <!-- Skills -->
-    <div class="min-w-sm max-h-sm rounded-lg overflow-hidden shadow-lg m-4">
+    <div class="rounded-lg overflow-hidden border-gray-50 border-2 shadow-md hover:shadow-lg">
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Languages</span></div>
+            <div class="font-bold text-xl mb-2"><span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Skills</span></div>
             <p class="text-left">
                 I've had experience with a few different languages.
             </p>
@@ -84,20 +68,3 @@
         </div>
     </div>
 </div>
-
-<style>
-/* taken from geeksforgeeks.org */
-.lgShadow {
-
-}
-    
-.lgShadow::after {
-    content: "";
-    position: absolute;
-    inset: -.625em;
-    background: linear-gradient(to bottom right,
-        rgb(0, 255, 81), rgb(255, 213, 0));
-    filter: blur(2.5em);
-    z-index: -1;
-}
-</style>
