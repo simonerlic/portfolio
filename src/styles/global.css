@@ -81,3 +81,10 @@ blockquote {
 	margin: 0px;
 	font-style: italic;
 }
+
+.gradient-shadow {
+	box-shadow: inset 0px 0px 10px 10px 
+              linear-gradient(to bottom, 
+              rgba(255, 255, 255, 0.1), 
+              rgba(0, 0, 0, 0.5));
+}

@@ -1,0 +1,27 @@
+---
+
+let { title, img, alt, eyebrow, details, url } = Astro.props;
+
+---
+
+
+<div class="font-harmonia text-left rounded-lg border-gray-50 border-2 shadow-md hover:shadow-lg w-1/2">
+    <img class="rounded-lg" src={ img } alt={ alt }>
+    <div class="mt-2 p-5">
+        <div>
+            <div class="text-xs text-slate-600 uppercase font-bold tracking-wider">{ eyebrow }</div>
+            <div class="h-2"></div>
+            <div class="font-bold text-slate-700 leading-snug">
+                <a href={ url } class="hover:underline">{ title }</a>
+            </div>
+            <div class="mt-2 text-sm text-slate-600">{ details }</div>
+        </div>
+    </div>
+</div>
+
+  
+<script>
+    export default {
+        props: ['img', 'alt', 'eyebrow', 'title', 'details', 'url']
+    }
+ </script>
