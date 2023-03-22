@@ -14,17 +14,33 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
 		<style>
-			.caret {
-			  animation: blink 1s steps(1) infinite;
+			@keyframes fade-up {
+				0% {
+					opacity: 0;
+					color: theme('colors.blue.500');
+					transform: translateY(10px);
+				}
+				0% {
+					opacity: 0.0;
+					color: theme('colors.blue.500');
+					transform: translateY(7px);
+				}
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
 			}
-	  
-			@keyframes blink {
-			  50% {
+		  
+			.fade-up {
+				display: inline-block;
 				opacity: 0;
-			  }
+				animation-name: fade-up;
+				animation-fill-mode: forwards;
 			}
-		  </style>
+		</style>
+		  
 	</head>
 	<body>
 		<Header />
@@ -41,9 +57,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<div class="h-2"></div>
 
 					<p class="text-xl font-harmonia text-center">
-						<span id="typing-text"></span><span class="caret">|</span>
-					</p>					
-
+						<span class="fade-up">A</span>
+						<span class="fade-up">software</span>
+						<span class="fade-up">engineering</span>
+						<span class="fade-up">student</span>
+						<span class="fade-up">interested</span>
+						<span class="fade-up">in</span>
+						<span class="fade-up">finding</span>
+						<span class="fade-up">elegant</span>
+						<span class="fade-up">solutions</span>
+						<span class="fade-up">to</span>
+						<span class="fade-up">complex</span>
+						<span class="fade-up">and</span>
+						<span class="fade-up">interesting</span>
+						<span class="fade-up">problems.</span>
+					</p>
+					  
 					<div class="h-1/2"></div>
 
 					<div class="text-center">
@@ -59,22 +88,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<!-- <Footer /> -->
 
 		<script>
-			const text = "A software engineering student interested in finding elegant solutions to complex and interesting problems.";
-			const typingTextElement = document.getElementById("typing-text");
-			const caretElement = document.getElementsByClassName("caret");
+			const fadeUpElements = document.querySelectorAll(".fade-up");
 		  
-			let index = 0;
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const target = entry.target as HTMLElement;
+						const index = Array.from(fadeUpElements).indexOf(target);
+						target.style.animationDuration = "0.4s";
+						target.style.animationDelay = `${700 + index * 100}ms`;
+						target.style.animationPlayState = "running";
+					}
+					});
+				},
+				{
+					threshold: 1.0,
+				}
+			);
 		  
-			function type() {
-			  if (index < text.length) {
-				typingTextElement!.innerHTML += text.charAt(index);
-				index++;
-
-				setTimeout(type, Math.random() * 50 + 25);
-			  }
-			}
-		  
-			type();
+			fadeUpElements.forEach((element) => {
+			  	observer.observe(element);
+			});
 		</script>
 		  
 	</body>
