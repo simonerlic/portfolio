@@ -88,3 +88,46 @@ blockquote {
               rgba(255, 255, 255, 0.1), 
               rgba(0, 0, 0, 0.5));
 }
+
+/* For landing page bio */
+
+@keyframes fade-up {
+	0% {
+		opacity: 0;
+		color: theme('colors.blue.500');
+		transform: translateY(10px);
+	}
+	0% {
+		opacity: 0.0;
+		color: theme('colors.blue.500');
+		transform: translateY(7px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-up {
+	display: inline-block;
+	opacity: 0;
+	animation-name: fade-up;
+	animation-fill-mode: forwards;
+}
+
+.fade-in-section {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
