@@ -14,6 +14,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.caret {
+			  animation: blink 1s steps(1) infinite;
+			}
+	  
+			@keyframes blink {
+			  50% {
+				opacity: 0;
+			  }
+			}
+		  </style>
 	</head>
 	<body>
 		<Header />
@@ -28,10 +39,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	
 					<!-- A small gap between the header and text -->
 					<div class="h-2"></div>
-					
+
 					<p class="text-xl font-harmonia text-center">
-						A software engineering student interested in finding elegant solutions to complex and interesting problems.
-					</p>
+						<span id="typing-text"></span><span class="caret">|</span>
+					</p>					
 
 					<div class="h-1/2"></div>
 
@@ -46,5 +57,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<About />
 		<Projects />
 		<!-- <Footer /> -->
+
+		<script>
+			const text = "A software engineering student interested in finding elegant solutions to complex and interesting problems.";
+			const typingTextElement = document.getElementById("typing-text");
+			const caretElement = document.getElementsByClassName("caret");
+		  
+			let index = 0;
+		  
+			function type() {
+			  if (index < text.length) {
+				typingTextElement!.innerHTML += text.charAt(index);
+				index++;
+
+				setTimeout(type, Math.random() * 50 + 25);
+			  }
+			}
+		  
+			type();
+		</script>
+		  
 	</body>
 </html>
