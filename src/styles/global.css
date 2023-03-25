@@ -1,8 +1,6 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
 	font-family: "Harmonia Sans";
@@ -89,12 +87,30 @@ blockquote {
               rgba(0, 0, 0, 0.5));
 }
 
+/* Animated gradient for the text */
+@keyframes title-gradient-slide {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.title-gradient-slide {
+	animation: title-gradient-slide 4s ease infinite;
+	background-size: 200% 200%;
+}
+
 /* For landing page bio */
 
 @keyframes fade-up {
 	0% {
 		opacity: 0;
-		color: theme('colors.blue.500');
+		color: theme('colors.purple.500');
 		transform: translateY(10px);
 	}
 	0% {
@@ -131,3 +147,12 @@ blockquote {
 		opacity: 1;
 	}
 }
+
+@layer components {
+	.gradient-text {
+	  	@apply bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text title-gradient-slide;
+	}
+	.gradient-text-dark {
+		@apply bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text title-gradient-slide;
+	}
+  }

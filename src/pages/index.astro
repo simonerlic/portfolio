@@ -15,7 +15,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />		  
 	</head>
-	<body>
+	<body class="dark: text-gray-300 dark: bg-black">
 		<div class="fade-in-section">
 			<Header />
 		</div>
@@ -25,8 +25,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<div class="h-screen flex flex-col justify-center items-center">
 				<div class="m-auto w-2/5">
 					<div class="fade-in-section">
-						<h1 class="font-harmonia text-3xl text-center">
-							Hi, <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text title-fade" id="title">I'm Simon</span>
+						<h1 class="font-harmonia text-3xl text-center dark: text-gray-50">
+							Hi, <span class="gradient-text dark: gradient-text-dark" id="title">I'm Simon</span>
 						</h1>
 					</div>
 					
@@ -81,7 +81,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						const target = entry.target as HTMLElement;
 						const index = Array.from(fadeUpElements).indexOf(target);
 						target.style.animationDuration = "0.4s";
-						target.style.animationDelay = `${1200 + index * 100}ms`;
+						target.style.animationDelay = `${1200 + index * 50}ms`;
 						target.style.animationPlayState = "running";
 					}
 					});
