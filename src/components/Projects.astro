@@ -7,7 +7,7 @@ import ProjectCard from '../components/ProjectCard.astro'
 <div id="projects" class="font-harmonia text-center flex flex-col pt-5 pb-5 justify-center items-center">
     <div class="m-auto text-xl justify-center items-center w-1/2">
 
-        <h1 class="text-3xl gradient-text">Projects</h1>
+        <h1 class="text-3xl gradient-text dark:gradient-text-dark">Projects</h1>
         <br>
         <p> 
             While I am largely busy with school and co-ops most of the year, I try to get a few projects done on the side.
@@ -18,7 +18,6 @@ import ProjectCard from '../components/ProjectCard.astro'
         </p>
         <br>
     </div>
-    <div class="h-10"></div>
     <!-- Create a carousel of ProjectCards -->
     <div class="p-10">
         <div class="margin-auto flex flex-wrap justify-center">
@@ -27,23 +26,23 @@ import ProjectCard from '../components/ProjectCard.astro'
             alt = 'A photo of a person'
             eyebrow = 'Code Project'
             title = 'DuckyDebugger' 
-            details = 'DuckyDebugger is a fun website that I put together using OpenAIs `gpt-3.5-turbo` API. It allows users to upload a sample of their code, and use the socratic method to debug their code.'
-            url = 'https://www.supasimon.com' /> <!-- F7BC3E for the ducky background. -->
+            details = 'A website built in Astro that I put together using OpenAIs `gpt-3.5-turbo` API. It allows users to upload a sample of their code, and use the socratic method to debug their code.'
+            url = 'https://github.com/simonerlic/ducky-debugger' /> <!-- F7BC3E for the ducky background. -->
             
             <ProjectCard
             img = 'src/content/img/duc.jpeg'
             alt = 'A photo of a person'
             eyebrow = 'Code Project'
             title = 'Can I Pass This?' 
-            details = 'Can I Pass This? Is a Swift app for iOS that allows users to check their chances of passing a course. The user inputs their syllabus and their grades, then the app will tell the user what they need on the final to reach their goal grade.'
+            details = 'A Swift app for iOS that allows users to check their chances of passing a course. The user inputs their syllabus and their grades, then the app will tell the user what they need on the final to reach their goal grade.'
             url = 'https://www.supasimon.com'/>
     
             <ProjectCard
             img = 'src/content/img/duc.jpeg'
             alt = 'A photo of a person'
             eyebrow = 'Code Project'
-            title = 'DuckyDebugger' 
-            details = 'DuckyDebugger is a fun website that I put together using OpenAIs `gpt-3.5-turbo` API. It allows users to upload a sample of their code, and use the socratic method to debug their code.'
+            title = 'Minutemen VR' 
+            details = 'A VR game built in Unity that I worked on in the summer of 2020. The game is a time-based memory game where a player must remember a specific sequence of actions in order to maintain a missile defense system.'
             url = 'https://www.supasimon.com'/>
         </div>
     </div>

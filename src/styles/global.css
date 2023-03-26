@@ -33,7 +33,8 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	color: #444;
+	color: theme('colors.neutral.700');
+	background-color: theme('colors.neutral.50');
 }
 h1,
 h2,
@@ -43,7 +44,7 @@ h5,
 h6,
 strong,
 b {
-	color: #222;
+	color: theme('colors.neutral.800');
 }
 textarea {
 	width: 100%;
@@ -78,13 +79,6 @@ blockquote {
 	padding: 2px 0px 2px 20px;
 	margin: 0px;
 	font-style: italic;
-}
-
-.gradient-shadow {
-	box-shadow: inset 0px 0px 10px 10px 
-              linear-gradient(to bottom, 
-              rgba(255, 255, 255, 0.1), 
-              rgba(0, 0, 0, 0.5));
 }
 
 /* Animated gradient for the text */
@@ -153,6 +147,9 @@ blockquote {
 	  	@apply bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text title-gradient-slide;
 	}
 	.gradient-text-dark {
-		@apply bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text title-gradient-slide;
+		@apply bg-gradient-to-r from-cyan-400 to-indigo-500 text-transparent bg-clip-text title-gradient-slide;
+	}
+	.gradient-button {
+		@apply bg-gradient-to-r from-blue-500 to-purple-600 title-gradient-slide text-white;
 	}
   }
