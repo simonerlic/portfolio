@@ -151,5 +151,6 @@ blockquote {
 	}
 	.gradient-button {
 		@apply bg-gradient-to-r from-blue-500 to-purple-600 title-gradient-slide text-white;
+		transition: 0.3s;
 	}
   }
