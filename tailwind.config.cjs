@@ -10,6 +10,12 @@ module.exports = {
 				'harmonia': ['Harmonia Sans', 'sans-serif'],
 				'harmonia-regular': ['Harmonia Sans Regular', 'sans-serif'],
 			},
+			colors: {
+				'theme-start': '#473B7B',
+				'theme-via': '#3584A7',
+				'theme-end': '#30D2BE',
+			},
+
 		},
 	},
 	plugins: [

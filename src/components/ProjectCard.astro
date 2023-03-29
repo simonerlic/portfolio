@@ -6,7 +6,9 @@ let { title, img, alt, eyebrow, details, url } = Astro.props;
 
 
 <div class="font-harmonia text-left rounded-lg border-neutral-50 bg-neutral-100 border-2 shadow-md hover:shadow-lg lg:w-[30%] md:w-1/3 sm:w-1/2 m-2">
-    <img class="rounded-lg shadow-inner" src={ img } alt={ alt }>
+    <div class="gradient-button rounded-lg shadow-inner">
+        <img class="rounded-lg shadow-inner" src={ img } alt={ alt }>
+    </div>
     <div class="mt-2 p-5">
         <div>
             <div class="text-xs text-neutral-600 uppercase font-bold tracking-wider">{ eyebrow }</div>

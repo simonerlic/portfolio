@@ -95,7 +95,7 @@ blockquote {
 }
 
 .title-gradient-slide {
-	animation: title-gradient-slide 4s ease infinite;
+	animation: title-gradient-slide 12s ease infinite;
 	background-size: 200% 200%;
 }
 
@@ -104,13 +104,8 @@ blockquote {
 @keyframes fade-up {
 	0% {
 		opacity: 0;
-		color: theme('colors.purple.500');
-		transform: translateY(10px);
-	}
-	0% {
-		opacity: 0.0;
-		color: theme('colors.blue.500');
-		transform: translateY(7px);
+		color: theme('colors.theme-via');
+		transform: translateY(4px);
 	}
 	100% {
 		opacity: 1;
@@ -144,13 +139,13 @@ blockquote {
 
 @layer components {
 	.gradient-text {
-	  	@apply bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text title-gradient-slide;
+	  	@apply bg-gradient-to-tr from-theme-start via-theme-via to-theme-end text-transparent bg-clip-text title-gradient-slide;
 	}
 	.gradient-text-dark {
-		@apply bg-gradient-to-r from-cyan-400 to-indigo-500 text-transparent bg-clip-text title-gradient-slide;
+		@apply bg-gradient-to-tr from-theme-start via-theme-via to-theme-end text-transparent bg-clip-text title-gradient-slide;
 	}
 	.gradient-button {
-		@apply bg-gradient-to-r from-blue-500 to-purple-600 title-gradient-slide text-white;
+		@apply bg-gradient-to-tr from-theme-start via-theme-via to-theme-end title-gradient-slide text-white;
 		transition: 0.3s;
 	}
   }
