@@ -81,6 +81,15 @@ blockquote {
 	font-style: italic;
 }
 
+#gradient-canvas {
+	width:100%;
+	height:100%;
+	--gradient-color-1: #A39BC7;
+	--gradient-color-2: theme('colors.theme-start');
+	--gradient-color-3: theme('colors.theme-via');
+	--gradient-color-4: #96D7F2;
+}
+
 /* Animated gradient for the text */
 @keyframes title-gradient-slide {
 	0% {
