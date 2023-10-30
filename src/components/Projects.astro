@@ -1,52 +1,59 @@
 ---
-import ProjectCard from '../components/ProjectCard.astro'
+import ProjectCard from "../components/ProjectCard.astro";
 ---
 
-<hr>
+<hr />
 <div class="h-10"></div>
-<div id="projects" class="m-auto font-harmonia text-center flex flex-col pt-5 pb-5 justify-center items-center">
-    <div class="m-auto text-xl justify-center items-center w-3/5 sm:w-4/5 md:w-3/5">
-
+<div
+    id="projects"
+    class="m-auto font-harmonia text-center flex flex-col pt-5 pb-5 justify-center items-center"
+>
+    <div
+        class="m-auto text-xl justify-center items-center w-3/5 sm:w-4/5 md:w-3/5"
+    >
         <h1 class="text-3xl gradient-text dark:gradient-text-dark">Projects</h1>
-        <br>
-        <p> 
-            While I am largely busy with school and co-ops most of the year, I try to get a few projects done on the side.
-        </p>
-        <br>
+        <br />
         <p>
-            The following projects are a few of my recent favourites.
+            While I am largely busy with school and co-ops most of the year, I
+            try to get a few projects done on the side.
         </p>
-        <br>
+        <br />
+        <p>The following projects are a few of my recent favourites.</p>
+        <br />
     </div>
     <!-- Create a carousel of ProjectCards -->
     <div class="p-5">
         <div class="margin-auto flex flex-wrap justify-center">
             <ProjectCard
-            img = 'img/flutter-transparent.png'
-            alt = 'A photo of the Unity logo'
-            eyebrow = 'Mobile App'
-            title = 'Prismatic' 
-            details = "A phone game built in Flutter that I worked on over a few weeks during my summer term. The objective of the game is to match the RGB values of a given colour. It's in testing right now, but will be available for iOS and Android."
-            url = 'https://github.com/simonerlic/colour-guesser'
-            chip = "Open source"/>
+                img="img/flutter-transparent.png"
+                alt="A photo of the Unity logo"
+                eyebrow="Mobile App"
+                title="Prismatic"
+                details="A phone game built in Flutter that I worked on over a few weeks during my summer term. The objective of the game is to match the RGB values of a given colour. It is currently available on Google Play and the Apple App Store"
+                url="https://github.com/simonerlic/colour-guesser"
+                chip="Open source"
+            />
 
             <ProjectCard
-            img = 'img/astro-transparent.png'
-            alt = 'A photo of the Astro logo'
-            eyebrow = 'Website'
-            title = 'DuckyDebugger' 
-            details = 'A website built in Astro that I put together using OpenAIs `gpt-3.5-turbo` API during my 2023 spring term. It allows users to upload a sample of their code, and use the socratic method to debug their code.'
-            url = 'https://github.com/simonerlic/ducky-debugger' 
-            chip = "Open source" /> <!-- F7BC3E for the ducky background. -->
-    
+                img="img/astro-transparent.png"
+                alt="A photo of the Astro logo"
+                eyebrow="Website"
+                title="DuckyDebugger"
+                details="A website built in Astro that I put together using OpenAIs `gpt-3.5-turbo` API during my 2023 spring term. It allows users to upload a sample of their code, and use the socratic method to debug their code."
+                url="https://github.com/simonerlic/ducky-debugger"
+                chip="Open source"
+            />
+            <!-- F7BC3E for the ducky background. -->
+
             <ProjectCard
-            img = 'img/unity-transparent.png'
-            alt = 'A photo of the Unity logo'
-            eyebrow = 'PC VR Game'
-            title = 'Minutemen VR' 
-            details = 'A VR game built in Unity that I worked on in the summer of 2020. The game is a time-based memory game where a player must remember a specific sequence of actions in order to maintain a missile defense system.'
-            url = 'https://github.com/simonerlic'
-            chip = "Closed source" />
+                img="img/unity-transparent.png"
+                alt="A photo of the Unity logo"
+                eyebrow="PC VR Game"
+                title="Minutemen VR"
+                details="A VR game built in Unity that I worked on in the summer of 2020. The game is a time-based memory game where a player must remember a specific sequence of actions in order to maintain a missile defense system."
+                url="https://github.com/simonerlic"
+                chip="Closed source"
+            />
         </div>
     </div>
 </div>
