@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Circle from './Circle';
 
-const Container = () => {
+const CircleContainer = () => {
   const [proximity, setProximity] = useState(20); // Default radius
 
   const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
@@ -28,4 +28,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default CircleContainer;

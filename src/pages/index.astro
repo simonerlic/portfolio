@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Container from "../components/CircleHandler.tsx";
+import CircleContainer from "../components/CircleHandler.tsx";
+import Landing from "../components/Landing.astro";
 ---
 
 <Layout title="Test">
 	<main>
-		<Container client:load />
+		<div>
+			<Landing />
+		</div>
 	</main>
 </Layout>
 

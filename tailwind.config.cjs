@@ -2,7 +2,17 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'serif': ['YoungSerif-Regular', 'serif'],
+			},
+		},
+		colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
+			'sabu': "#c8d5bb",
+			'yanagi': "#47585c",
+		},
 	},
 	plugins: [],
 }
