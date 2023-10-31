@@ -5,6 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 import Landing from "../components/Landing.astro";
+import Introduction from "../components/Introduction.astro";
 ---
 
 <!doctype html>
@@ -12,7 +13,8 @@ import Landing from "../components/Landing.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
-		<Landing />
+  <body class="w-screen">
+    <Landing />
+    <Introduction />
   </body>
 </html>

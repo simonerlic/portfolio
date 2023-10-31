@@ -15,9 +15,20 @@
 }
 
 @font-face {
-  font-family: "YoungSerif";
-  font-style: normal;
-  src: url("../fonts/YoungSerif-Regular.ttf");
+  font-family: "Outfit-Medium";
+  font-style: Medium;
+  src: url("../fonts/Outfit-Medium.ttf");
+}
+
+.landing-page::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%; /* Adjust this value to control the height of the gradient area */
+  background: linear-gradient(180deg, transparent, #c8d5bb); /* Replace #ff5733 with your color */
+  z-index: 1;
 }
 
 * {
@@ -64,4 +75,19 @@ code {
   --gradient-color-2: #80989b;
   --gradient-color-3: #c8d5bb;
   --gradient-color-4: #97a791;
+}
+
+.shadow {
+  box-shadow: inset 0 0 10px #c8d5bb;
+}
+
+h1 {
+  margin: auto;
+  font-size:15vh;
+  transition: all 1s;
+}
+h1:hover {
+  filter:blur(6px);
+  letter-spacing: 0.01em;
+  opacity:0.00;
 }
