@@ -13,10 +13,7 @@ module.exports = {
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
-			'sabu': "#c8d5bb",
-			'yanagi': "#47585c",
-			'nezu': "#47585c",
-			'roiro': "#2b2b2b"
+			'slight': "#000000a0",
 		},
 	},
 	plugins: [],

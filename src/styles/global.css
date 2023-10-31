@@ -30,11 +30,38 @@ code {
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-#gradient-canvas {
+/* #gradient-canvas {
   width: 100%;
   height: 100%;
   --gradient-color-1: #97a791;
   --gradient-color-2: #c8d5bb;
   --gradient-color-3: #bed2c3;
   --gradient-color-4: #bed3ca;
+} */
+
+/* #gradient-canvas {
+  width: 100%;
+  height: 100%;
+  --gradient-color-1: #d3ccd6;
+  --gradient-color-2: #a6a5c4;
+  --gradient-color-3: #9790a4;
+  --gradient-color-4: #4f455c;
+} */
+
+/* #gradient-canvas {
+  width: 100%;
+  height: 100%;
+  --gradient-color-1: #667367;
+  --gradient-color-2: #364038;
+  --gradient-color-3: #c5d9c7;
+  --gradient-color-4: #97a697;
+} */
+
+#gradient-canvas {
+  width: 100%;
+  height: 100%;
+  --gradient-color-1: #6c848d;
+  --gradient-color-2: #80989b;
+  --gradient-color-3: #c8d5bb;
+  --gradient-color-4: #97a791;
 }
