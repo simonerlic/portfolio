@@ -12,6 +12,8 @@ module.exports = {
 			current: 'currentColor',
 			'sabu': "#c8d5bb",
 			'yanagi': "#47585c",
+			'nezu': "#47585c",
+			'roiro': "#2b2b2b"
 		},
 	},
 	plugins: [],
