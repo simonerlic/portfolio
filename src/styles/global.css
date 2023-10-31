@@ -1,33 +1,33 @@
-:root {
-  --accent: 136, 58, 234;
-  --accent-light: 224, 204, 250;
-  --accent-dark: 49, 10, 101;
-  --accent-gradient: linear-gradient(45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%);
-  --sabu-nazu: 71, 88, 92;
-  --yanagi-nezumi: 200, 213, 187;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@font-face {
+  font-family: "DMSerif";
+  font-style: normal;
+  src: url("../fonts/DMSerifDisplay.ttf");
 }
 
-html {
-  font-family: system-ui, sans-serif;
-  background: #E0E0E0;
-  background-size: 224px;
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  src: url("../fonts/Outfit-Regular.ttf");
+}
+
+@font-face {
+  font-family: "YoungSerif";
+  font-style: normal;
+  src: url("../fonts/YoungSerif-Regular.ttf");
+}
+
+* {
+  transition: all 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 code {
-  font-family:
-    youngserif,
-    Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 #gradient-canvas {
@@ -37,16 +37,4 @@ code {
   --gradient-color-2: #c8d5bb;
   --gradient-color-3: #bed2c3;
   --gradient-color-4: #bed3ca;
-}
-
-.newBlur {
-  width: max-content;
-
-  &:after {
-    content: '';
-    position: absolute;
-    inset: 0%;
-    backdrop-filter: blur(20px);
-    -webkit-mask: linear-gradient(180deg, transparent 30%, black 90%);
-  }
 }
