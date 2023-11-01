@@ -18,7 +18,7 @@ module.exports = {
 			'slighter': "#00000070",
 			'porcelain': "#f8fbf8",
 			'silk': "#dddcd6",
-			'greenish': "#c8d5bb"
+			'greenish': "#c8d5bb",
 		},
 	},
 	plugins: []
