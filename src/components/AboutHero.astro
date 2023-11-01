@@ -1,16 +1,14 @@
-<div class="-translate-y-5">
+<div class="fade-in">
   <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
     <!-- Define the circle path -->
     <path
       id="circlePath"
-      d="M 150,150 m -125, 0 a 125,125 0 1,0 250,0 a 125,125 0 1,0 -250,0"
+      d="M 150,150 m -140, 0 a 140,140 0 1,0 280,0 a 140,140 0 1,0 -280,0"
       fill="none"></path>
 
     <!-- Repeated text instances -->
     <text font-size="16" fill="#00000050" font-family="Outfit, sans-serif">
-      <textPath href="#circlePath" startOffset="5%">
-        here's me on a hike</textPath
-      >
+      <textPath href="#circlePath" startOffset="20%">↑ that's me!</textPath>
     </text>
 
     <!-- Your circular profile picture can be placed in the center -->
@@ -25,7 +23,7 @@
 
     <!-- Define a clip path for the image -->
     <clipPath id="circleClip">
-      <circle cx="150" cy="150" r="125"></circle>
+      <circle cx="150" cy="150" r="120"></circle>
     </clipPath>
   </svg>
 </div>

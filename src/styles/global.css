@@ -27,7 +27,11 @@
   left: 0;
   right: 0;
   height: 30%; /* Adjust this value to control the height of the gradient area */
-  background: linear-gradient(180deg, transparent, #c8d5bb); /* Replace #ff5733 with your color */
+  background: linear-gradient(
+    180deg,
+    transparent,
+    #c8d5bb
+  ); /* Replace #ff5733 with your color */
   z-index: 1;
 }
 
@@ -81,13 +85,26 @@ code {
   box-shadow: inset 0 0 10px #c8d5bb;
 }
 
-h1 {
-  margin: auto;
-  font-size:15vh;
-  transition: all 1s;
+.container * {
+  transition: all 0.8s;
+  filter: blur(6px);
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, filter, transform; /* Optimize for properties that will change */
+  pointer-events: none; /* Prevent mouse events on invisible elements */
 }
-h1:hover {
-  filter:blur(6px);
-  letter-spacing: 0.01em;
-  opacity:0.00;
+
+.fade-in {
+  transition: opacity 1s, filter 1s;
+  filter: blur(6px);
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+/* Class to add when the elements are in view */
+.in-view {
+  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }

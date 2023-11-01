@@ -3,24 +3,22 @@ import AboutHero from "../components/AboutHero.astro";
 ---
 
 <div
-  class="flex flex-row m-0 w-screen h-screen bg-gradient-to-b from-greenish to-silk overflow-clip"
+  class="flex flex-row m-0 w-screen h-screen bg-gradient-to-b from-greenish to-silk overflow-clip mx-auto"
 >
-  <div class="flex flex-col justify-center items-center text-center">
-    <!-- <img
-      src="images/Forest.jpg"
-      alt="Profile Picture"
-      class="rounded-full w-1/4 aspect-square p-8"
-    /> -->
+  <div
+    class="flex flex-col w-screen justify-center items-center text-center mb-4
+    fade-in"
+  >
     <AboutHero class="w-1/3" />
     <p class="text-slight md:text-4xl text-2xl font-dmserif">
       Hi there! It's nice to meet you.
     </p>
     <p
-      class="text-slight md:text-xl text-md font-outfit md:w-1/2 w-full px-8 pt-4"
+      class="text-slight md:text-xl text-md font-outfit md:w-1/3 w-full px-8 pt-4"
     >
-      I'm a <span class="font-outfit-medium">software engineering</span> student
-      at the University of Victoria, an <span class="font-outfit-medium"
-        >ML/AI enthusiast</span
+      I'm a <span class="font-outfit-medium">software engineering</span>
+       student at the University of Victoria, an <span
+        class="font-outfit-medium">ML/AI enthusiast</span
       >, and always eager to <span class="font-outfit-medium"
         >solve complex and interesting problems.</span
       >
