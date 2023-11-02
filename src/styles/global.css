@@ -81,6 +81,15 @@ code {
   --gradient-color-4: #97a791;
 }
 
+#experience-gradient-canvas {
+  width: 100%;
+  height: 100%;
+  --gradient-color-1: #6c848d;
+  --gradient-color-2: #80989b;
+  --gradient-color-3: #c8d5bb;
+  --gradient-color-4: #97a791;
+}
+
 .shadow {
   box-shadow: inset 0 0 10px #c8d5bb;
 }
