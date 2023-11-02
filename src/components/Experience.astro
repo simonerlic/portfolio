@@ -3,7 +3,7 @@ import ItemChip from "./ItemChip.astro";
 ---
 
 <div
-  class="w-screen md:h-screen sm:min-h-screen bg-gradient-to-b from-silk to-greenish"
+  class="w-screen md:h-screen sm:min-h-screen bg-gradient-to-b from-silk to-greenish flex flex-col justify-center items-center"
 >
   <div
     class="flex flex-col items-center justify-center text-center pt-32 w-screen"
@@ -14,41 +14,45 @@ import ItemChip from "./ItemChip.astro";
       robust and secure backends, and scalable and maintainable codebases.
     </p>
   </div>
-  <div class="w-screen grid grid-cols-6 grid-rows-3 gap-2">
-    <!-- masonry grid -->
-
-    <div
-      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg mb-2 p-2 col-span-2 row-span-2"
-    >
-      <h2 class="text-slight font-outfit text-2xl">Languages</h2>
-      <div class="flex gap-2">
-        <ItemChip image="languages/c.svg" alt="C Language logo" />
-        <ItemChip image="languages/cpp.svg" alt="C++ Language logo" />
-        <ItemChip image="languages/java.svg" alt="Java Language logo" />
-        <ItemChip image="languages/python.svg" alt="Python Language logo" />
-        <ItemChip
-          image="languages/javascript.svg"
-          alt="JavaScript Language logo"
-        />
-        <ItemChip
-          image="languages/typescript.svg"
-          alt="TypeScript Language logo"
-        />
-        <ItemChip image="languages/swift.svg" alt="Swift Language logo" />
-        <ItemChip image="languages/dart.svg" alt="Dart Language logo" />
+  <div
+    class="w-1/2 bg-[#97a791] rounded-xl p-4 bg-opacity-25 shadow-inner flex flex-row justify-between px-8"
+  >
+    <div>
+      <div class="text-slight font-outfit">
+        <h2 class="text-xl font-dmserif pb-2">Languages</h2>
+        <hr class="text-slighter pb-2" />
+        <ul>
+          <li>C/C++</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
       </div>
     </div>
-    <div
-      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg mb-2 p-2 col-span-2 row-span-2"
-    >
-      <h2 class="text-slight font-outfit text-2xl">Tooling</h2>
-      <p>Git, Docker, Kubernetes, CI/CD</p>
+    <div>
+      <div class="text-slight font-outfit">
+        <h2 class="text-xl font-dmserif pb-2">Tooling</h2>
+        <hr class="text-slighter pb-2" />
+        <ul>
+          <li>Git</li>
+          <li>Docker</li>
+          <li>Kubernetes</li>
+          <li>Linux</li>
+        </ul>
+      </div>
     </div>
-    <div
-      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg p-2 col-span-4 row-span-1"
-    >
-      <h2 class="text-slight font-outfit text-2xl">Frameworks</h2>
-      <p>React, Next.js, Vue, Svelte, Flutter, Express, Astro</p>
+    <div>
+      <div class="text-slight font-outfit">
+        <h2 class="text-xl font-dmserif pb-2">Frameworks</h2>
+        <hr class="text-slighter pb-2" />
+        <ul>
+          <li>Express</li>
+          <li>React</li>
+          <li>Astro</li>
+          <li>Next.JS</li>
+          <li>.NET</li>
+          <li>Flutter</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
