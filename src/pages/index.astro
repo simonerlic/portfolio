@@ -7,6 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Header from "../components/Header.astro";
 import Landing from "../components/Landing.astro";
 import Introduction from "../components/Introduction.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <!doctype html>
@@ -14,10 +15,11 @@ import Introduction from "../components/Introduction.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="w-screen">
+  <body>
     <Header />
     <Landing />
     <Introduction />
+    <Experience />
 
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -30,7 +32,7 @@ import Introduction from "../components/Introduction.astro";
                   document.querySelectorAll(".container *")
                 );
                 const index = elements.indexOf(entry.target);
-                const delay = index * 0.05; // Adjust the delay multiplier as needed
+                const delay = index * 0.1; // Adjust the delay multiplier as needed
 
                 entry.target.style.transitionDelay = `${delay}s`;
                 entry.target.classList.add("in-view");
@@ -41,7 +43,7 @@ import Introduction from "../components/Introduction.astro";
             });
           },
           {
-            threshold: 0.2, // Adjust as needed
+            threshold: 1.0, // Adjust as needed
             rootMargin: "0px", // Adjust if you want to trigger before the element is in the viewport
           }
         );

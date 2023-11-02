@@ -4,48 +4,31 @@
 ---
 
 <header class="fixed w-screen z-20">
-  <nav
-    class="container mx-auto p-4 flex text-center justify-center items-center"
-  >
-    <a
-      href="#projects"
-      class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
-      >projects</a
+  <nav class="mx-auto p-4 flex text-center justify-center items-center">
+    <div
+      class="container flex flex-row justify-center items-center backdrop-blur-md bg-[#97a791] bg-opacity-25 px-8 pb-1 w-fit rounded-full"
     >
-    <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">•</p>
-    <a
-      href="/contact"
-      class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
-      >contact</a
-    >
-    <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">•</p>
-    <a
-      href="/blog"
-      class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">blog</a
-    >
+      <a
+        href="#projects"
+        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
+        >projects</a
+      >
+      <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">
+        •
+      </p>
+      <a
+        href="/contact"
+        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
+        >contact</a
+      >
+      <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">
+        •
+      </p>
+      <a
+        href="/blog"
+        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
+        >blog</a
+      >
+    </div>
   </nav>
 </header>
-
-<script>
-  // Function to handle the scroll event
-  function handleScroll() {
-    const header = document.querySelector("header");
-    if (window.scrollY > 0) {
-      header.classList.add("bg-opacity-75", "backdrop-blur-md");
-    } else {
-      header.classList.remove("bg-opacity-75", "backdrop-blur-md");
-    }
-  }
-
-  // Add the scroll event listener when the script loads
-  window.addEventListener("scroll", handleScroll);
-
-  // Clean up the event listener when the component is unmounted
-  // (relevant if you're doing client-side navigation with something like Astro Island or SPA mode)
-  window.addEventListener("unload", () => {
-    window.removeEventListener("scroll", handleScroll);
-  });
-
-  // Call it on initial load
-  handleScroll();
-</script>
