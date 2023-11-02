@@ -1,0 +1,7 @@
+---
+const { image, alt } = Astro.props;
+---
+
+<div class="md:w-16 md:h-16 w-10 h-10 bg-silk rounded-md shadow-inner p-2">
+  <img src={image} alt={alt} class="w-full h-full opacity-80" />
+</div>

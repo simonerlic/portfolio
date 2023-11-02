@@ -1,5 +1,5 @@
 ---
-import AboutHero from "./AboutHero.astro";
+import ItemChip from "./ItemChip.astro";
 ---
 
 <div
@@ -16,31 +16,39 @@ import AboutHero from "./AboutHero.astro";
   </div>
   <div class="w-screen grid grid-cols-6 grid-rows-3 gap-2">
     <!-- masonry grid -->
-    <div class="col-span-2 row-span-3">
-      <canvas id="experience-gradient-canvas" data-transition-in></canvas>
-    </div>
 
-    <div class="bg-porcelain h-full rounded-lg mb-2 p-2 col-span-2 row-span-2">
+    <div
+      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg mb-2 p-2 col-span-2 row-span-2"
+    >
       <h2 class="text-slight font-outfit text-2xl">Languages</h2>
-      <p>C, C++, Java, Python, JavaScript/TypeScript, Swift, Dart</p>
+      <div class="flex gap-2">
+        <ItemChip image="languages/c.svg" alt="C Language logo" />
+        <ItemChip image="languages/cpp.svg" alt="C++ Language logo" />
+        <ItemChip image="languages/java.svg" alt="Java Language logo" />
+        <ItemChip image="languages/python.svg" alt="Python Language logo" />
+        <ItemChip
+          image="languages/javascript.svg"
+          alt="JavaScript Language logo"
+        />
+        <ItemChip
+          image="languages/typescript.svg"
+          alt="TypeScript Language logo"
+        />
+        <ItemChip image="languages/swift.svg" alt="Swift Language logo" />
+        <ItemChip image="languages/dart.svg" alt="Dart Language logo" />
+      </div>
     </div>
-    <div class="bg-porcelain h-full rounded-lg mb-2 p-2 col-span-2 row-span-2">
+    <div
+      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg mb-2 p-2 col-span-2 row-span-2"
+    >
       <h2 class="text-slight font-outfit text-2xl">Tooling</h2>
       <p>Git, Docker, Kubernetes, CI/CD</p>
     </div>
-    <div class="bg-porcelain h-full rounded-lg p-2 col-span-4 row-span-1">
+    <div
+      class="bg-[#97a791] bg-opacity-25 shadow-inner h-full rounded-lg p-2 col-span-4 row-span-1"
+    >
       <h2 class="text-slight font-outfit text-2xl">Frameworks</h2>
       <p>React, Next.js, Vue, Svelte, Flutter, Express, Astro</p>
     </div>
   </div>
 </div>
-
-<script>
-  import { Gradient } from "../scripts/gradient.js";
-
-  // Create your instance
-  const gradient = new Gradient();
-
-  // Call `initGradient` with the selector to your canvas
-  gradient.initGradient("#experience-gradient-canvas");
-</script>
