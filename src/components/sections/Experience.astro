@@ -4,35 +4,35 @@ import ExperienceGrid from "../ExperienceGrid.astro";
 ---
 
 <div
-  class="w-screen md:min-h-screen sm:min-h-screen bg-gradient-to-b from-silk to-greenish flex flex-row justify-center items-center"
+  class="w-screen min-h-screen bg-gradient-to-b from-silk to-greenish flex justify-center items-center"
   id="experience"
 >
-  <div class="w-screen flex md:flex-row flex-col justify-between lg:px-16 md:px-4">
-    <div class="flex flex-col lg:px-16 md:px-4 px-4 lg:w-2/5 md:w-2/3">
+  <div class="mx-auto flex md:flex-row flex-col items-center justify-between">
+    <div class="flex flex-col lg:w-2/5 md:w-1/2 lg:px-16 px-8">
       <h1 class="text-slight font-dmserif text-4xl fade-in">My Experience</h1>
-      <p class="text-slight font-outfit text-xl py-4 fade-in">
-        I firmly believe that good software stems from good design. As a result, I
-        strive to create beautiful, intuitive, and accessible user interfaces,
-        robust and secure backends, and scalable and maintainable codebases.
-      </p>
       <div class="flex flex-col">
+        <p class="text-slight font-outfit text-xl py-4 fade-in">
+          I firmly believe that good software stems from good design. As a
+          result, I strive to create beautiful, intuitive, and accessible user
+          interfaces, robust and secure backends, and scalable and maintainable
+          codebases.
+        </p>
         <p class="text-slight font-outfit text-xl py-4 fade-in">
           I started writing code when I was 12, creating a bash script that
           emulates with AI functionality of "Jarvis" from the Iron Man movies.
           Around the same time, I also started learning the basics of HTML and
           CSS, and created my first websites.
         </p>
-        <p class="text-slight font-outfit text-xl py-4 fade-in w-full">
-          Since then, I have continued to learn and grow as a developer, using my
-          curiosity and passion to create as a tool to learn new technologies and
-          frameworks. I have worked on a variety of projects, ranging from
+        <p class="text-slight font-outfit text-xl py-4 fade-in w-full pb-8">
+          Since then, I have continued to learn and grow as a developer, using
+          my curiosity and passion to create as a tool to learn new technologies
+          and frameworks. I have worked on a variety of projects, ranging from
           websites to mobile apps to VR games, and have picked up expertise in a
           variety of languages and frameworks as a result.
         </p>
       </div>
     </div>
-    <div />
-    <div class="flex lg:px-16 md:px-4">
+    <div class="md:w-1/2 w-full px-8">
       <ExperienceGrid />
     </div>
   </div>
