@@ -5,9 +5,9 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 import Header from "../components/Header.astro";
-import Landing from "../components/Landing.astro";
-import Introduction from "../components/Introduction.astro";
-import Experience from "../components/Experience.astro";
+import Landing from "../components/sections/Landing.astro";
+import Introduction from "../components/sections/Introduction.astro";
+import Experience from "../components/sections/Experience.astro";
 ---
 
 <!doctype html>
@@ -29,10 +29,10 @@ import Experience from "../components/Experience.astro";
               if (entry.isIntersecting) {
                 // Add a delay based on the element's position within all observed elements
                 const elements = Array.from(
-                  document.querySelectorAll(".container *")
+                  document.querySelectorAll(".container *"),
                 );
                 const index = elements.indexOf(entry.target);
-                const delay = index * 0.1; // Adjust the delay multiplier as needed
+                const delay = index * 0.15; // Adjust the delay multiplier as needed
 
                 entry.target.style.transitionDelay = `${delay}s`;
                 entry.target.classList.add("in-view");
@@ -45,7 +45,7 @@ import Experience from "../components/Experience.astro";
           {
             threshold: 1.0, // Adjust as needed
             rootMargin: "0px", // Adjust if you want to trigger before the element is in the viewport
-          }
+          },
         );
 
         // Observe all elements within the container
@@ -69,7 +69,7 @@ import Experience from "../components/Experience.astro";
           },
           {
             threshold: 0.1,
-          }
+          },
         );
 
         elementsToAnimate.forEach((el) => {
