@@ -8,6 +8,7 @@ import Header from "../components/Header.astro";
 import Landing from "../components/sections/Landing.astro";
 import Introduction from "../components/sections/Introduction.astro";
 import Experience from "../components/sections/Experience.astro";
+import Contact from "@components/sections/Contact.astro";
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ import Experience from "../components/sections/Experience.astro";
     <Landing />
     <Introduction />
     <Experience />
+    <Contact />
 
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -29,7 +31,7 @@ import Experience from "../components/sections/Experience.astro";
               if (entry.isIntersecting) {
                 // Add a delay based on the element's position within all observed elements
                 const elements = Array.from(
-                  document.querySelectorAll(".container *"),
+                  document.querySelectorAll(".container *")
                 );
                 const index = elements.indexOf(entry.target);
                 const delay = index * 0.15; // Adjust the delay multiplier as needed
@@ -45,7 +47,7 @@ import Experience from "../components/sections/Experience.astro";
           {
             threshold: 1.0, // Adjust as needed
             rootMargin: "0px", // Adjust if you want to trigger before the element is in the viewport
-          },
+          }
         );
 
         // Observe all elements within the container
@@ -69,7 +71,7 @@ import Experience from "../components/sections/Experience.astro";
           },
           {
             threshold: 0.1,
-          },
+          }
         );
 
         elementsToAnimate.forEach((el) => {

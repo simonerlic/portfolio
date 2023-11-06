@@ -111,7 +111,7 @@ code {
 }
 
 .vertical-divider {
-  border-right:1px #ff0000;    /* line 1 pixel width, length of "Some content" */
+  border-right: 1px #ff0000; /* line 1 pixel width, length of "Some content" */
 }
 
 /* Class to add when the elements are in view */

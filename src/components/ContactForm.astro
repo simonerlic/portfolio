@@ -1,0 +1,50 @@
+---
+
+---
+
+<div class="text-left">
+  <form
+    data-static-form-name="contact"
+    method="POST"
+    action="/api/submit"
+    class="flex flex-col gap-2"
+  >
+    <label class="text-slighter font-outfit text-lg">Email address</label>
+    <input
+      type="email"
+      name="email"
+      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit md:w-1/2 w-3/4"
+    />
+
+    <label class="text-slighter font-outfit text-lg">Name</label>
+    <input
+      name="name"
+      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit md:w-1/2 w-3/4"
+    />
+    <label class="text-slighter font-outfit text-lg">Message</label>
+    <textarea
+      name="message"
+      class="bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit rounded-2xl"
+    ></textarea>
+    <button
+      type="submit"
+      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 mt-4 text-slight font-outfit"
+      >Submit</button
+    >
+  </form>
+  <script>
+    const tx = document.getElementsByTagName("textarea");
+    for (let i = 0; i < tx.length; i++) {
+      tx[i].setAttribute(
+        "style",
+        "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
+      );
+      tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput() {
+      this.style.height = 0;
+      this.style.height = this.scrollHeight + "px";
+    }
+  </script>
+</div>

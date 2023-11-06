@@ -16,9 +16,11 @@ module.exports = {
 			current: 'currentColor',
 			'slight': "#000000a0",
 			'slighter': "#00000070",
+			'slightest': "#00000030",
 			'porcelain': "#f8fbf8",
 			'silk': "#dddcd6",
 			'greenish': "#c8d5bb",
+			'slateish': "#80989b"
 		},
 	},
 	plugins: []
