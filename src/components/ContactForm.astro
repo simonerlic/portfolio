@@ -6,8 +6,11 @@
   <form
     data-static-form-name="contact"
     method="POST"
-    action="/api/submit"
+    action="https://email-forward.simonerlic.workers.dev/"
+    target="hidden_iframe"
+    onsubmit="submitted=true;"
     class="flex flex-col gap-2"
+    id="contact-form"
   >
     <label class="text-slighter font-outfit text-lg">Email address</label>
     <input
@@ -32,6 +35,11 @@
       >Submit</button
     >
   </form>
+  <iframe
+    name="hidden_iframe"
+    id="hidden_iframe"
+    style="display:none;"
+    onload="if(submitted) {}"></iframe>
   <script>
     const tx = document.getElementsByTagName("textarea");
     for (let i = 0; i < tx.length; i++) {
