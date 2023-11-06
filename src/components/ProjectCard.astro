@@ -1,0 +1,23 @@
+---
+const { image, name, description, link } = Astro.props;
+---
+
+<div
+  class="w-full h-full flex flex-col rounded-2xl bg-[#97a791] bg-opacity-50 shadow-inner fade-in"
+>
+  <div class="w-full rounded-2xl">
+    <img
+      src={image}
+      alt={name}
+      class="w-full rounded-2xl h-1/2 overflow-clip"
+    />
+  </div>
+  <div class="p-4 text-slight font-dmserif">
+    <h2 class="text-2xl">{name}</h2>
+    <p class="font-outfit">{description}</p>
+    <button
+      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 mt-4 text-slight font-outfit disabled:opacity-50 disabled:hover:bg-opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:text-slight"
+      ><a href={link}>See More</a></button
+    >
+  </div>
+</div>
