@@ -4,12 +4,11 @@
 // and change text to thank you.
 ---
 
-<!-- action="https://email-forward.simonerlic.workers.dev/" -->
 <div class="text-left">
   <form
     data-static-form-name="contact"
     method="POST"
-    action=""
+    action="https://email-forward.simonerlic.workers.dev/"
     target="hidden_iframe"
     onsubmit="submitted=true;"
     class="flex flex-col gap-2"
@@ -61,7 +60,7 @@
     for (let i = 0; i < tx.length; i++) {
       tx[i].setAttribute(
         "style",
-        "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;",
+        "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
       );
       tx[i].addEventListener("input", OnInput, false);
     }

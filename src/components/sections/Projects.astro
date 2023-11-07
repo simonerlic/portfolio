@@ -2,9 +2,12 @@
 import ProjectGrid from "@components/ProjectGrid.astro";
 ---
 
-<div class="flex flex-col min-h-screen bg-greenish text-center items-center">
-  <div class="mx-auto flex flex-col items-center">
-    <div class="flex flex-col lg:px-16 px-8 md:w-1/2">
+<div
+  class="flex flex-col w-screen h-fit bg-greenish text-center items-center lg:pb-0 pb-16"
+  id="projects"
+>
+  <div class="mx-auto pt-20 flex flex-col items-center">
+    <div class="flex flex-col lg:px-16 px-8 pb-16 md:w-3/5">
       <h1 class="text-slight font-dmserif text-4xl fade-in">My Projects</h1>
       <p class="text-slight font-outfit text-xl py-4 fade-in">
         I want my work to stand for itself, so I'll let it do the talking.
@@ -12,7 +15,9 @@ import ProjectGrid from "@components/ProjectGrid.astro";
       </p>
     </div>
   </div>
-  <div class="h-full flex flex-col justify-center items-center px-8">
+  <div
+    class="w-full h-fit sm:px-8 md:px-64 flex flex-col justify-center items-center"
+  >
     <ProjectGrid />
   </div>
 </div>

@@ -2,22 +2,22 @@
 import ProjectCard from "./ProjectCard.astro";
 ---
 
-<div class="grid lg:grid-cols-3 grid-rows-3 grid-cols-2 gap-2">
-  <div class="lg:col-span-1 col-span-2 row-span-1 fade-in">
+<div class="grid md:grid-cols-6 grid-rows-2 grid-cols-1 gap-2 w-full">
+  <div class="md:col-span-3 col-span-1 row-span-1 fade-in">
     <ProjectCard image="/images/test.jpg" />
   </div>
   <div
-    class="hidden lg:flex lg:col-span-2 col-span-0 row-span-0 bg-[#97a791] rounded-2xl p-4 bg-opacity-60 shadow-inner w-full fade-in"
+    class="hidden md:flex md:col-span-3 md:row-span-1 bg-[#97a791] rounded-2xl p-4 bg-opacity-30 shadow-inner w-full fade-in"
   >
   </div>
   <div
-    class="hidden lg:flex lg:col-span-1 col-span-0 row-span-0 bg-[#97a791] rounded-2xl p-4 bg-opacity-80 shadow-inner w-full fade-in"
+    class="hidden md:flex md:col-span-2 md:row-span-1 bg-[#97a791] rounded-2xl p-4 bg-opacity-80 shadow-inner w-full fade-in"
   >
   </div>
-  <div class="lg:col-span-1 col-span-0 row-span-1 fade-in">
+  <div class="md:col-span-2 col-span-1 row-span-1 fade-in">
     <ProjectCard image="/images/test.jpg" />
   </div>
-  <div class="lg:col-span-1 col-span-0 row-span-1 fade-in">
+  <div class="md:col-span-2 col-span-1 row-span-1 fade-in">
     <ProjectCard image="/images/test.jpg" />
   </div>
 </div>
