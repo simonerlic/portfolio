@@ -1,13 +1,18 @@
 ---
-import ProjectCard from "../ProjectCard.astro";
+import ProjectGrid from "@components/ProjectGrid.astro";
 ---
 
-<div class="h-screen">
-  <div class="h-1/4">
-    <ProjectCard
-      name="Test"
-      description="This is a description or something"
-      image="images/test.jpg"
-    />
+<div class="flex flex-col min-h-screen bg-greenish text-center items-center">
+  <div class="mx-auto flex flex-col items-center">
+    <div class="flex flex-col lg:px-16 px-8 md:w-1/2">
+      <h1 class="text-slight font-dmserif text-4xl fade-in">My Projects</h1>
+      <p class="text-slight font-outfit text-xl py-4 fade-in">
+        I want my work to stand for itself, so I'll let it do the talking.
+        Below, you'll see some of my favourite recent projects.
+      </p>
+    </div>
+  </div>
+  <div class="h-full flex flex-col justify-center items-center px-8">
+    <ProjectGrid />
   </div>
 </div>

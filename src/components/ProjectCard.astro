@@ -1,23 +1,38 @@
 ---
-const { image, name, description, link } = Astro.props;
+const { image, title, description, link, github } = Astro.props;
 ---
 
 <div
-  class="w-full h-full flex flex-col rounded-2xl bg-[#97a791] bg-opacity-50 shadow-inner fade-in"
+  class="flex flex-col justify-between rounded-2xl bg-[#97a791] bg-opacity-50 shadow-inner fade-in p-1"
 >
-  <div class="w-full rounded-2xl">
+  <div class="relative">
     <img
       src={image}
-      alt={name}
-      class="w-full rounded-2xl h-1/2 overflow-clip"
+      alt={title}
+      class="rounded-[12px] h-[30vh] overflow-hidden object-cover"
     />
   </div>
-  <div class="p-4 text-slight font-dmserif">
-    <h2 class="text-2xl">{name}</h2>
-    <p class="font-outfit">{description}</p>
+  <div
+    class="flex-1 p-4 text-slight text-left font-dmserif flex flex-col justify-between"
+  >
+    <div>
+      <h2 class="text-2xl pb-2">{title}</h2>
+      <hr class="text-slighter pb-2 opacity-70" />
+      <p class="font-outfit">{description}</p>
+    </div>
+  </div>
+  <div class="px-4 pb-4 font-outfit text-slight flex flex-row gap-2">
     <button
-      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 mt-4 text-slight font-outfit disabled:opacity-50 disabled:hover:bg-opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:text-slight"
-      ><a href={link}>See More</a></button
+      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 font-outfit"
     >
+      <a href={link} class="block text-center">See More</a>
+    </button>
+    <button
+      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 font-outfit w-fit"
+    >
+      <a href={link} class="block text-center"
+        ><img src="/images/github-mark.svg" class="h-[2vh]" /></a
+      >
+    </button>
   </div>
 </div>
