@@ -25,7 +25,7 @@
   position: absolute;
   bottom: 0;
   height: 30%; /* Adjust this value to control the height of the gradient area */
-  width: 100%;
+  width: 110%;
   background: linear-gradient(
     180deg,
     transparent,
@@ -119,4 +119,19 @@ code {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c8d5bb;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
