@@ -21,11 +21,11 @@ const { image, title, description, link, github, tags } = Astro.props;
       <p class="font-outfit">{description}</p>
     </div>
   </div>
-  <div class="px-4 pb-4 font-outfit text-slight flex flex-row gap-1">
+  <div class="px-4 pb-4 font-outfit text-slight flex flex-wrap gap-1">
     {
       tags &&
         tags.map((tag) => (
-          <span class="rounded-full bg-greenish bg-opacity-50 hover:bg-opacity-70 shadow-sm border border-slightest text-sm hover:shadow-xl p-1 px-2 font-outfit">
+          <span class="rounded-full bg-greenish bg-opacity-50 shadow-sm border border-slightest text-xs p-1 px-2 font-outfit">
             {tag}
           </span>
         ))
@@ -35,7 +35,7 @@ const { image, title, description, link, github, tags } = Astro.props;
     {
       link && (
         <button class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 font-outfit">
-          <a href={link} class="block text-center">
+          <a href={link} class="block text-center text-sm">
             See More
           </a>
         </button>
@@ -45,7 +45,7 @@ const { image, title, description, link, github, tags } = Astro.props;
       github && (
         <button class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-4 px-4 font-outfit w-fit">
           <a href={github} class="block text-center">
-            <img src="/images/github-mark.svg" class="h-[1.15em]" />
+            <img src="/images/github-mark.svg" class="h-[1em]" />
           </a>
         </button>
       )

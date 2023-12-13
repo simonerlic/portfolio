@@ -26,13 +26,13 @@ const env = {
     <label class="text-slighter font-outfit text-lg">Name</label>
     <input
       name="name"
-      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit md:w-1/2 w-3/4"
+      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit"
     />
     <label class="text-slighter font-outfit text-lg">Email address</label>
     <input
       type="email"
       name="email"
-      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit md:w-1/2 w-3/4"
+      class="rounded-full bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit"
     />
     <label class="text-slighter font-outfit text-lg">Message</label>
     <textarea
@@ -50,7 +50,7 @@ const env = {
     <button
       type="submit"
       id="submitButton"
-      class="rounded-full bg-greenish bg-opacity-30 hover:bg-opacity-70 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 mt-4 text-slight font-outfit disabled:opacity-50 disabled:hover:bg-opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:text-slight"
+      class="rounded-full bg-greenish bg-opacity-75 hover:bg-opacity-655 border border-slightest shadow-inner hover:shadow-xl p-2 px-4 mt-4 text-slight font-outfit disabled:opacity-50 disabled:hover:bg-opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:text-slight"
       >Submit</button
     >
   </form>
@@ -62,6 +62,7 @@ const env = {
 
       form.addEventListener("submit", function (e) {
         submitButton.disabled = true; // Disable the button
+        submitButton.classList.add("cursor"); // Add cursor class
         submitButton.innerText = "Thank you for submitting!"; // Change button text
       });
     });
