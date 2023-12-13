@@ -2,9 +2,18 @@
 // when submitted is true, the form has been submitted
 // disable the submit button to prevent multiple submissions,
 // and change text to thank you.
+
+// environment variables
+const env = {
+  turnstileSiteKey: "0x4AAAAAAAN20pyP9stLhfNT",
+};
 ---
 
 <div class="text-left">
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer></script>
   <form
     data-static-form-name="contact"
     method="POST"
@@ -30,6 +39,14 @@
       name="message"
       class="bg-greenish bg-opacity-75 border border-slightest shadow-inner hover:shadow-md p-2 px-4 text-slight font-outfit rounded-2xl"
     ></textarea>
+
+    <div
+      class="cf-turnstile"
+      data-sitekey={env.turnstileSiteKey}
+      data-size="compact"
+    >
+    </div>
+
     <button
       type="submit"
       id="submitButton"
