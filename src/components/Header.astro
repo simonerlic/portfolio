@@ -1,6 +1,6 @@
 ---
 // Header.astro
-// No imports necessary
+// ------------
 ---
 
 <header class="fixed w-screen z-20">
@@ -10,24 +10,24 @@
     >
       <a
         href="#experience"
-        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
-        >experience</a
+        class="md:text-xl font-outfit text-slighter active:text-slight p-2 hover:text-slight nav-link"
+        id="nav-experience">experience</a
       >
       <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">
         •
       </p>
       <a
         href="#projects"
-        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
-        >projects</a
+        class="md:text-xl font-outfit text-slighter active:text-slight p-2 hover:text-slight nav-link"
+        id="nav-projects">projects</a
       >
       <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">
         •
       </p>
       <a
         href="#contact"
-        class="md:text-xl font-outfit text-slighter p-2 hover:text-slight"
-        >contact</a
+        class="md:text-xl font-outfit text-slighter active:text-slight p-2 hover:text-slight nav-link"
+        id="nav-contact">contact</a
       >
       <!-- <p class="md:text-xl font-outfit text-slighter p-2 hover:text-slight">
         •
@@ -39,4 +39,29 @@
       > -->
     </div>
   </nav>
+  <script>
+    function updateNavLinks() {
+      const sections = [
+        { id: "experience", element: document.getElementById("experience") },
+        { id: "projects", element: document.getElementById("projects") },
+        { id: "contact", element: document.getElementById("contact") },
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // Adjust this to change when the link becomes active
+
+      sections.forEach((section) => {
+        const sectionTop = section.element.offsetTop;
+        const sectionBottom = sectionTop + section.element.offsetHeight;
+        const navLink = document.getElementById(`nav-${section.id}`);
+
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          navLink.classList.add("active");
+        } else {
+          navLink.classList.remove("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateNavLinks);
+  </script>
 </header>

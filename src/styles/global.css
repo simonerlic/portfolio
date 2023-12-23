@@ -20,6 +20,35 @@
   src: url("../fonts/Outfit-Medium.ttf");
 }
 
+.nav-link {
+  position: relative;
+  display: inline-block; /* Ensure the link is treated as a block for positioning */
+  transition: letter-spacing 0.3s ease;
+  letter-spacing: normal;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%; /* Start from the middle */
+  bottom: 0; /* Position at the bottom of the element */
+  width: 0; /* Initial width */
+  height: 1.5px; /* Thickness of the underline */
+  background: #00000070; /* Color of the underline */
+  transition: width 0.2s ease, left 0.2s ease, color 0.1s ease; /* Animation */
+  transform: translateX(-50%) translateY(-7.5px); /* Position the underline */
+}
+
+.nav-link.active {
+  letter-spacing: 0px; /* Adjust as needed */
+  color: #000000a0; /* Replace with your color */
+}
+
+.nav-link.active::after {
+  width: 75%; /* Adjust to desired width */
+  left: 50%; /* Adjust so the underline is centered */
+}
+
 .landing-page::before {
   content: "";
   position: absolute;
