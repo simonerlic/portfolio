@@ -132,7 +132,7 @@ code {
 }
 
 .fade-in {
-  transition: opacity 1s, filter 1s;
+  transition: opacity 0.6s, filter 0.8s;
   filter: blur(6px);
   transform: translateY(10px);
   opacity: 0;
