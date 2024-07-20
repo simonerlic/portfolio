@@ -9,6 +9,7 @@ module.exports = {
 				'youngserif': ['YoungSerif', 'serif'],
 				'outfit': ['Outfit', 'sans-serif'],
 				'outfit-medium': ['Outfit-Medium', 'sans-serif'],
+				'Berkelely Mono': ['Berkeley Mono', 'monospace'],
 			},
 		},
 		colors: {

@@ -1,0 +1,226 @@
+---
+import BaseLayout from "../layouts/Layout.astro";
+import TopEntries from "../components/blog/TopEntries.astro";
+
+// use blog.css for styling
+import "../styles/blog-home.css";
+
+const pageTitle = "Simon Erlic | Blog";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<BaseLayout title={pageTitle}>
+  <div id="canvas-container"></div>
+  <div id="content-container">
+    <div id="scroll-content">
+      <div id="intro-text">
+        <h1>Hi, I'm Simon</h1>
+        <p>Let's make something amazing together.</p>
+      </div>
+      <div id="blog-entries">
+        <TopEntries />
+      </div>
+    </div>
+  </div>
+  <div
+    id="cameraPosition"
+    style="position: absolute; top: 10px; left: 10px; color: white; display: none;"
+  >
+  </div>
+  <script is:inline src="https://unpkg.com/three@0.140.0/build/three.min.js"
+  ></script>
+  <script
+    is:inline
+    src="https://unpkg.com/three@0.140.0/examples/js/controls/OrbitControls.js"
+  ></script>
+  <script>
+    function init() {
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0f0f0f);
+
+      const camera = new THREE.PerspectiveCamera(
+        30,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document
+        .getElementById("canvas-container")
+        .appendChild(renderer.domElement);
+      const cameraPositionDiv = document.getElementById("cameraPosition");
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      // controls.autoRotate = true;
+      // controls.autoRotateSpeed = 0.1;
+      camera.position.set(-6.06, -28.05, 8.74);
+      // controls.update();
+
+      const shaderMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+          focalPlane: { value: new THREE.Vector3(0, 0, 1) },
+          focalPoint: { value: new THREE.Vector3(0, 0, 0) },
+          focalDepth: { value: 10.0 },
+          maxBlur: { value: 5.0 },
+          pointSize: { value: 2.0 },
+        },
+        vertexShader: `
+          attribute float vertexOpacity;
+          varying float vOpacity;
+          varying float vDistance;
+          uniform vec3 focalPlane;
+          uniform vec3 focalPoint;
+          uniform float focalDepth;
+          uniform float maxBlur;
+          uniform float pointSize;
+
+          void main() {
+            vOpacity = vertexOpacity;
+            
+            vec3 toPointVector = position - focalPoint;
+            float distToFocalPlane = dot(toPointVector, focalPlane);
+            vDistance = abs(distToFocalPlane);
+            
+            float blur = smoothstep(0.0, focalDepth, vDistance);
+            gl_PointSize = pointSize * (1.0 + blur * maxBlur);
+            
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          varying float vOpacity;
+          varying float vDistance;
+          uniform float focalDepth;
+
+          void main() {
+            float blur = smoothstep(0.0, focalDepth, vDistance);
+            
+            vec2 circCoord = 2.0 * gl_PointCoord - 1.0;
+            float circRadius = dot(circCoord, circCoord);
+            if (circRadius > 1.0) {
+              discard;
+            }
+            
+            float edgeSoftness = 0.5;
+            float edgeOpacity = smoothstep(1.0, 1.0 - edgeSoftness, circRadius);
+            float finalOpacity = vOpacity * (1.0 - blur * 0.85) * edgeOpacity;
+            
+            gl_FragColor = vec4(0.85, 0.85, 0.85, finalOpacity); // Black color with opacity
+          }
+        `,
+        transparent: true,
+        depthWrite: false,
+        depthTest: true,
+      });
+
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      window.addEventListener("resize", onWindowResize, false);
+
+      const maxVertices = 200000;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(maxVertices * 3);
+      const opacities = new Float32Array(maxVertices).fill(0.5); // Start with a base opacity for all points
+      const colors = new Float32Array(maxVertices * 3);
+      geometry.setAttribute(
+        "vertexColor",
+        new THREE.BufferAttribute(colors, 3)
+      );
+      geometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(positions, 3)
+      );
+      geometry.setAttribute(
+        "vertexOpacity",
+        new THREE.BufferAttribute(opacities, 1)
+      );
+
+      const points = new THREE.Points(geometry, shaderMaterial);
+      scene.add(points);
+
+      // Initialize a set of positions along the attractor path
+      let x = 1,
+        y = 1,
+        z = 1;
+      let positionIndex = 0;
+
+      function dadrasAttractor(x, y, z) {
+        const a = 3.0,
+          b = 2.7,
+          c = 1.7,
+          d = 2.0,
+          e = 9.0;
+        const dx = y - a * x + b * y * z;
+        const dy = c * y - x * z + z;
+        const dz = d * x * y - e * z;
+        return { dx, dy, dz };
+      }
+
+      function initPositions() {
+        let dt = 0.05;
+        for (let i = 0; i < maxVertices; i++) {
+          // Initialize x, y, and z with random values
+          let x = Math.random() * 10 - 5; // Random value between -5 and 5
+          let y = Math.random() * 10 - 5; // Random value between -5 and 5
+          let z = Math.random() * 10 - 5; // Random value between -5 and 5
+
+          let { dx, dy, dz } = dadrasAttractor(x, y, z);
+          x += dx * dt;
+          y += dy * dt;
+          z += dz * dt;
+
+          positions[i * 3] = x * 5;
+          positions[i * 3 + 1] = y * 5;
+          positions[i * 3 + 2] = z * 5;
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        let dt = 0.001;
+
+        cameraPositionDiv.textContent = `Camera Position: x=${camera.position.x.toFixed(2)}, y=${camera.position.y.toFixed(2)}, z=${camera.position.z.toFixed(2)}`;
+
+        // Update a subset of points every frame
+        for (let i = 0; i < 200000; i++) {
+          let index = (positionIndex + i) % maxVertices;
+          let { dx, dy, dz } = dadrasAttractor(
+            positions[index * 3] / 5,
+            positions[index * 3 + 1] / 5,
+            positions[index * 3 + 2] / 5
+          );
+          positions[index * 3] += dx * dt * 5;
+          positions[index * 3 + 1] += dy * dt * 5;
+          positions[index * 3 + 2] += dz * dt * 5;
+        }
+
+        positionIndex = (positionIndex + 100) % maxVertices;
+
+        // Update focal plane
+        let time = Date.now() * 0.000001;
+        let focalPlane = new THREE.Vector3(
+          Math.sin(time),
+          Math.cos(time),
+          1
+        ).normalize();
+        shaderMaterial.uniforms.focalPlane.value = focalPlane;
+
+        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.vertexOpacity.needsUpdate = true;
+
+        renderer.render(scene, camera);
+        controls.update();
+      }
+
+      initPositions();
+      animate();
+    }
+
+    init();
+  </script>
+</BaseLayout>
