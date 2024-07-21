@@ -1,13 +1,14 @@
 ---
 import BlogLayout from "./BlogLayout.astro";
 import "../styles/blog-content.css";
-const { frontmatter } = Astro.props;
+
+const { title, pubDate } = Astro.props;
 ---
 
-<BlogLayout pageTitle={frontmatter.title}>
+<BlogLayout pageTitle={title}>
   <div class="post-details pb-4 sm:pb-8">
-    <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.pubDate.slice(0, 10)}</p>
+    <h1>{title}</h1>
+    <p>{pubDate.slice(0, 10)}</p>
   </div>
 
   <div class="flex justify-center">

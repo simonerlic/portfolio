@@ -4,20 +4,16 @@ import "../../styles/blog-content.css";
 
 <header class="text-center pt-2 pb-2 flex flex-col items-center">
   <a href="/blog" class="flex flex-col items-center">
-    <canvas
-      id="lil-doodad"
-      style="width: 75px; height: 75px;"
-      width="75"
-      height="75"
-      class="pb-1"></canvas>
+    <canvas id="lil-doodad" style="width: 75px; height: 75px;" class="pb-1"
+    ></canvas>
     <script is:inline src="https://unpkg.com/three@0.140.0/build/three.min.js"
     ></script>
     <script>
       // Setup scene, camera, and renderer
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(
-        35,
-        50 / 50, // Use the canvas size
+        40,
+        75 / 75, // Use the canvas size
         0.1,
         1000
       );
@@ -25,7 +21,7 @@ import "../../styles/blog-content.css";
         antialias: true,
         canvas: document.getElementById("lil-doodad"),
       });
-      renderer.setSize(100, 100);
+      renderer.setSize(75, 75);
       renderer.setClearColor("#d9d9d9"); // Set the background color
 
       // Setup the material and geometry for the line
