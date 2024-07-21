@@ -13,6 +13,8 @@
     },
     "types": [
       "@astrojs/types"
-    ]
+    ],
+    "allowJs": true,
+    "strictNullChecks": true
   }
 }

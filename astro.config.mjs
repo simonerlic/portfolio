@@ -8,11 +8,12 @@ import cloudflare from "@astrojs/cloudflare";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://simonerlic.com',
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [mdx(), sitemap(), tailwind(), preact()],
   output: "server",
   adapter: cloudflare()
 });

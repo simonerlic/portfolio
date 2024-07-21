@@ -1,11 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import "../../styles/blog-home.css";
-const allPosts = await Astro.glob("../../pages/posts/*.mdx");
+const allPosts = await getCollection("posts");
 
 const sortedPosts = allPosts.sort(
-  (a, b) =>
-    Number(new Date(b.frontmatter.pubDate)) -
-    Number(new Date(a.frontmatter.pubDate))
+  (a, b) => Number(new Date(b.data.pubDate)) - Number(new Date(a.data.pubDate))
 );
 ---
 
@@ -18,13 +17,13 @@ const sortedPosts = allPosts.sort(
           <li>
             <span class="pr-2">-rw-r--r-- 1 serlic serlic{"  "}</span>
             <span>
-              {new Date(post.frontmatter.pubDate).toLocaleDateString("en-US", {
+              {new Date(post.data.pubDate).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
               })}
             </span>
-            <a href={post.url} class="underline pl-2">
-              {post.frontmatter.filetitle}.md
+            <a href={`/posts/${post.slug}/`} class="underline pl-2">
+              {post.data.filetitle}.md
             </a>
           </li>
         ))
