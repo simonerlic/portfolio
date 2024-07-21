@@ -1,19 +1,23 @@
 ---
-import BlogLayout from "./BlogLayout.astro";
+import Layout from "./Layout.astro";
+import Header from "../components/blog/BlogHeader.astro";
 import "../styles/blog-content.css";
 
-const { title, pubDate } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
-<BlogLayout pageTitle={title}>
-  <div class="post-details pb-4 sm:pb-8">
-    <h1>{title}</h1>
-    <p>{pubDate.slice(0, 10)}</p>
-  </div>
+<Layout title={frontmatter.title}>
+  <Header />
+  <div class="blog-body">
+    <div class="post-details pb-4 sm:pb-8">
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+    </div>
 
-  <div class="flex justify-center">
-    <div class="w-full sm:w-[8.5in]">
-      <slot />
+    <div class="flex justify-center">
+      <div class="w-full sm:w-[8.5in]">
+        <slot />
+      </div>
     </div>
   </div>
-</BlogLayout>
+</Layout>
