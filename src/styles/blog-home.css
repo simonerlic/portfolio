@@ -1,6 +1,6 @@
 :root {
-  --blur-height: 35vh;
-  --intro-width: 40%;
+  --blur-height: 25vh;
+  --intro-width: 30%;
   --terminal-bg: rgba(0, 0, 0, 0.25);
   --terminal-text: #efefef;
   --terminal-link: #0088ff;
@@ -46,12 +46,17 @@ html {
   position: relative;
   color: white;
   font-size: large;
-  font-family: "Berkeley Mono", monospace;
+  font-family: "DMSerif", serif;
   z-index: 3;
   height: var(--blur-height);
   width: 100%;
   display: flex;
   backdrop-filter: blur(10px);
+}
+
+#scroll-content p {
+  font-family: "Outfit", sans;
+  font-size: medium;
 }
 
 #intro-text {
@@ -96,11 +101,14 @@ html {
   padding: 1em;
   width: 100%;
   height: 100%;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   background-color: var(--terminal-bg);
   color: var(--terminal-text);
   margin-right: 20px;
   overflow-y: auto;
+  font-family: "Berkeley Mono", monospace;
+  font-size: medium;
 }
 
 h1 {

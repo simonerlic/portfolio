@@ -11,7 +11,7 @@ body {
 .header-text {
   font-size: 1em;
   font-weight: 400;
-  font-family: "Berkeley Mono", monospace;
+  font-family: "DMSerif", serif;
   margin: 0;
 }
 
@@ -47,14 +47,26 @@ body {
 .post-details h1 {
   font-size: 1.5em;
   font-weight: 500;
-  font-family: "Berkeley Mono", monospace;
+  font-family: "DMSerif", serif;
   margin: 0;
 }
 
 .post-details p {
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: 400;
-  font-family: "Berkeley Mono", monospace;
+  font-family: "Outfit", sans;
   opacity: 0.9;
   margin: 0;
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Outfit", sans;
+}
+
+code {
+  font-family: "Berkeley Mono", monospace;
 }
