@@ -3,7 +3,7 @@ import Layout from "./Layout.astro";
 import Header from "../components/blog/BlogHeader.astro";
 import "../styles/blog-content.css";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, readTime } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
@@ -11,10 +11,15 @@ const { frontmatter } = Astro.props;
   <div class="blog-body">
     <div class="post-details pb-4 sm:pb-8">
       <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+      <p>
+        <span>{frontmatter.pubDate.toString().slice(0, 10)}</span>
+        <span> • </span>
+        <span>{readTime}</span>
+      </p>
+      <p></p>
     </div>
 
-    <div class="flex justify-center">
+    <div class="blog-content flex justify-center">
       <div class="w-full sm:w-[8.5in]">
         <slot />
       </div>
