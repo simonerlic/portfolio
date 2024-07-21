@@ -1,0 +1,19 @@
+---
+import BlogLayout from "./BlogLayout.astro";
+import "../styles/blog-content.css";
+
+const { title, pubDate } = Astro.props;
+---
+
+<BlogLayout pageTitle={title}>
+  <div class="post-details pb-4 sm:pb-8">
+    <h1>{title}</h1>
+    <p>{pubDate.slice(0, 10)}</p>
+  </div>
+
+  <div class="flex justify-center">
+    <div class="w-full sm:w-[8.5in]">
+      <slot />
+    </div>
+  </div>
+</BlogLayout>

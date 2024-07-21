@@ -1,0 +1,20 @@
+---
+import Header from "../components/blog/BlogHeader.astro";
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <div class="blog-body">
+      <slot />
+    </div>
+  </body>
+</html>

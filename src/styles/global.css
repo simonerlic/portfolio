@@ -20,6 +20,12 @@
   src: url("../fonts/Outfit-Medium.ttf");
 }
 
+@font-face {
+  font-family: "Berkeley Mono";
+  font-style: normal;
+  src: url("../fonts/BerkeleyMono-Regular.woff");
+}
+
 .nav-link {
   position: relative;
   display: inline-block; /* Ensure the link is treated as a block for positioning */

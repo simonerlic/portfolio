@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background: #d9d9d9;
+  color: #0f0f0f;
+}
+
+.header-text {
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "Berkeley Mono", monospace;
+  margin: 0;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 10px 20px;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.blog-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-details h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: "Berkeley Mono", monospace;
+  margin: 0;
+}
+
+.post-details p {
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "Berkeley Mono", monospace;
+  opacity: 0.9;
+  margin: 0;
+}
