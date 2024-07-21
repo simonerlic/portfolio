@@ -1,0 +1,96 @@
+---
+import "../../styles/blog-content.css";
+---
+
+<header class="text-center pt-2 pb-2 flex flex-col items-center">
+  <a href="/blog" class="flex flex-col items-center">
+    <canvas
+      id="lil-doodad"
+      style="width: 75px; height: 75px;"
+      width="75"
+      height="75"
+      class="pb-1"></canvas>
+    <script is:inline src="https://unpkg.com/three@0.140.0/build/three.min.js"
+    ></script>
+    <script>
+      // Setup scene, camera, and renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        35,
+        50 / 50, // Use the canvas size
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        canvas: document.getElementById("lil-doodad"),
+      });
+      renderer.setSize(100, 100);
+      renderer.setClearColor("#d9d9d9"); // Set the background color
+
+      // Setup the material and geometry for the line
+      const colors = [];
+      const geometry = new THREE.BufferGeometry();
+      const points = [];
+      const tailLength = 2000; // Length of the tail in points
+
+      // Halvorsen Attractor parameters
+      let x = 0.1,
+        y = 0,
+        z = 0;
+      const a = 1.89;
+      const dt = 0.01;
+
+      function halvorsenAttractor() {
+        const dx = -a * x - 4 * y - 4 * z - y * y;
+        const dy = -a * y - 4 * z - 4 * x - z * z;
+        const dz = -a * z - 4 * x - 4 * y - x * x;
+        x += dt * dx;
+        y += dt * dy;
+        z += dt * dz;
+        points.push(new THREE.Vector3(x, y, z));
+
+        // Manage colors for fading effect
+        const newColor = new THREE.Color("#0f0f0f"); // Change color to #0f0f0f
+        newColor.lerp(
+          new THREE.Color("#0f0f0f"),
+          1 - points.length / tailLength
+        ); // Keep the color consistent
+        colors.push(newColor);
+
+        if (points.length > tailLength) {
+          points.shift();
+          colors.shift();
+        }
+
+        geometry.setFromPoints(points);
+        geometry.setAttribute(
+          "color",
+          new THREE.BufferAttribute(
+            new Float32Array(colors.flatMap((c) => c.toArray())),
+            3
+          )
+        );
+      }
+
+      // Create the line with vertex colors enabled
+      const material = new THREE.LineBasicMaterial({ vertexColors: true });
+      const line = new THREE.Line(geometry, material);
+      scene.add(line);
+
+      // Camera position
+      camera.position.z = 50;
+
+      // Animation loop with rotation
+      function animate() {
+        requestAnimationFrame(animate);
+        halvorsenAttractor();
+        line.rotation.y += 0.001; // Slow rotation
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+    <h1 class="header-text">Simon's Ramblings</h1>
+  </a>
+</header>
