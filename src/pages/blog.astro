@@ -12,12 +12,14 @@ const pageTitle = "Simon Erlic | Blog";
   <div id="content-container">
     <div id="scroll-content">
       <div id="intro-text">
-        <div class="sm:w-2/3">
+        <div class="lg:w-2/3 md:w-full w-full">
           <h1>Hi, I'm Simon.</h1>
-          <p class="pb-2">Welcome to my blog!</p>
           <p>
             I aim to use this space to update whoever is interested on my my
             current projects, thoughts, and ramblings.
+          </p>
+          <p class="pt-2">
+            Click the links in the totally-a-terminal to see each post.
           </p>
         </div>
       </div>
@@ -63,11 +65,11 @@ const pageTitle = "Simon Erlic | Blog";
 
       const shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
-          focalPlane: { value: new THREE.Vector3(0, 0, 1) },
+          focalPlane: { value: new THREE.Vector3(0, 0.5, 1) },
           focalPoint: { value: new THREE.Vector3(0, 0, 0) },
-          focalDepth: { value: 10.0 },
+          focalDepth: { value: 20.0 },
           maxBlur: { value: 5.0 },
-          pointSize: { value: 2.0 },
+          pointSize: { value: 1.5 },
         },
         vertexShader: `
           attribute float vertexOpacity;
@@ -184,9 +186,24 @@ const pageTitle = "Simon Erlic | Blog";
         }
       }
 
+      let startTime = Date.now();
+      const easingDuration = 10000; // 5 seconds in milliseconds
+      const initialDt = 0.005; // Start with a higher value
+      const finalDt = 0.0001; // End with the original lower value
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
       function animate() {
         requestAnimationFrame(animate);
-        let dt = 0.001;
+
+        // Calculate the eased dt value
+        let currentTime = Date.now();
+        let elapsedTime = currentTime - startTime;
+        let t = Math.min(elapsedTime / easingDuration, 1);
+        let easedT = easeOutCubic(t);
+        let dt = initialDt + (finalDt - initialDt) * easedT;
 
         cameraPositionDiv.textContent = `Camera Position: x=${camera.position.x.toFixed(2)}, y=${camera.position.y.toFixed(2)}, z=${camera.position.z.toFixed(2)}`;
 
@@ -205,13 +222,7 @@ const pageTitle = "Simon Erlic | Blog";
 
         positionIndex = (positionIndex + 100) % maxVertices;
 
-        // Update focal plane
-        let time = Date.now() * 0.000001;
-        let focalPlane = new THREE.Vector3(
-          Math.sin(time),
-          Math.cos(time),
-          1
-        ).normalize();
+        let focalPlane = new THREE.Vector3(0, 1, 1).normalize();
         shaderMaterial.uniforms.focalPlane.value = focalPlane;
 
         geometry.attributes.position.needsUpdate = true;

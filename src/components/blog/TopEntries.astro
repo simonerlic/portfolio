@@ -22,7 +22,12 @@ const sortedPosts = allPosts.sort(
                 day: "numeric",
               })}
             </span>
-            <a href={`/posts/${post.slug}/`} class="underline pl-2">
+            <a
+              href={`/posts/${post.slug}/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline pl-2"
+            >
               {post.data.filetitle}.md
             </a>
           </li>

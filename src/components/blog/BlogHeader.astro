@@ -2,7 +2,7 @@
 import "../../styles/blog-content.css";
 ---
 
-<header class="text-center pt-2 pb-2 flex flex-col items-center">
+<header class="text-center pt-0 pb-2 flex flex-col items-center">
   <a href="/blog" class="flex flex-col items-center">
     <canvas id="lil-doodad" style="width: 75px; height: 75px;" class="pb-1"
     ></canvas>
@@ -28,22 +28,41 @@ import "../../styles/blog-content.css";
       const colors = [];
       const geometry = new THREE.BufferGeometry();
       const points = [];
-      const tailLength = 2000; // Length of the tail in points
+      const tailLength = 750; // Length of the tail in points
 
       // Halvorsen Attractor parameters
       let x = 0.1,
         y = 0,
         z = 0;
       const a = 1.89;
-      const dt = 0.01;
+      let initialDt = 0.035; // Start with a higher value
+      let finalDt = 0.004; // End with the original lower value
+      let currentDt = initialDt;
+
+      // Easing parameters
+      const startTime = Date.now();
+      const easingDuration = 800;
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function updateDt() {
+        let currentTime = Date.now();
+        let elapsedTime = currentTime - startTime;
+        let t = Math.min(elapsedTime / easingDuration, 1);
+        let easedT = easeOutCubic(t);
+        currentDt = initialDt + (finalDt - initialDt) * easedT;
+      }
 
       function halvorsenAttractor() {
+        updateDt();
         const dx = -a * x - 4 * y - 4 * z - y * y;
         const dy = -a * y - 4 * z - 4 * x - z * z;
         const dz = -a * z - 4 * x - 4 * y - x * x;
-        x += dt * dx;
-        y += dt * dy;
-        z += dt * dz;
+        x += currentDt * dx;
+        y += currentDt * dy;
+        z += currentDt * dz;
         points.push(new THREE.Vector3(x, y, z));
 
         // Manage colors for fading effect
@@ -81,7 +100,7 @@ import "../../styles/blog-content.css";
       function animate() {
         requestAnimationFrame(animate);
         halvorsenAttractor();
-        line.rotation.y += 0.001; // Slow rotation
+        line.rotation.y += 0.00001; // Slow rotation
         renderer.render(scene, camera);
       }
 
