@@ -1,0 +1,21 @@
+---
+export const prerender = false;
+
+if (Astro.request.method === "GET") {
+  return Astro.redirect("/files/resume-simon-erlic.pdf", 307);
+}
+---
+
+<script>
+  // This script runs on the client side after the PDF download is triggered
+  window.location.href = "/";
+</script>
+
+<main>
+  <p>
+    If the download doesn't start automatically, <a
+      href="/files/resume-simon-erlic.pdf">click here</a
+    >.
+  </p>
+  <p>You will be redirected to the homepage shortly.</p>
+</main>
