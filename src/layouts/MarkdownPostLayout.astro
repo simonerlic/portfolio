@@ -7,22 +7,34 @@ const { frontmatter, readTime } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <Header />
-  <div class="blog-body">
-    <div class="post-details pb-4 sm:pb-8">
-      <h1>{frontmatter.title}</h1>
-      <p>
-        <span>{frontmatter.pubDate.toString().slice(0, 10)}</span>
-        <span> • </span>
-        <span>{readTime}</span>
-      </p>
-      <p></p>
-    </div>
+    <Header />
+    <div class="blog-body">
+        <div class="post-details pb-4 sm:pb-8">
+            <h1>{frontmatter.title}</h1>
+            <p>
+                <span
+                    >{
+                        new Date(frontmatter.pubDate).toLocaleDateString(
+                            "en-US",
+                            {
+                                weekday: "long",
+                                month: "long",
+                                day: "numeric",
+                                timeZone: "America/Vancouver",
+                            },
+                        )
+                    }</span
+                >
+                <span class="mx-1"> • </span>
+                <span>{readTime}</span>
+            </p>
+            <p></p>
+        </div>
 
-    <div class="blog-content flex justify-center">
-      <div class="w-full sm:w-[8.5in]">
-        <slot />
-      </div>
+        <div class="blog-content flex justify-center">
+            <div class="w-full sm:w-[8.5in]">
+                <slot />
+            </div>
+        </div>
     </div>
-  </div>
 </Layout>
