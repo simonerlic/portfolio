@@ -4,35 +4,41 @@ import "../../styles/blog-home.css";
 const allPosts = await getCollection("posts");
 
 const sortedPosts = allPosts.sort(
-  (a, b) => Number(new Date(b.data.pubDate)) - Number(new Date(a.data.pubDate))
+    (a, b) =>
+        Number(new Date(b.data.pubDate)) - Number(new Date(a.data.pubDate)),
 );
 ---
 
 <body class="relative min-h-screen">
-  <div class="recent-box">
-    <h3 class="mb-4">$ ls -a blog_entries/*.md</h3>
-    <ul class="space-y-4 sm:space-y-2">
-      {
-        sortedPosts.map((post) => (
-          <li>
-            <span class="pr-2">-rw-r--r-- 1 serlic serlic{"  "}</span>
-            <span>
-              {new Date(post.data.pubDate).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-              })}
-            </span>
-            <a
-              href={`/posts/${post.slug}/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline pl-2"
-            >
-              {post.data.filetitle}.md
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+    <div class="recent-box">
+        <h3 class="mb-4">$ ls -a blog_entries/*.md</h3>
+        <ul class="space-y-4 sm:space-y-2">
+            {
+                sortedPosts.map((post) => (
+                    <li>
+                        <span class="pr-2">
+                            -rw-r--r-- 1 serlic serlic{"  "}
+                        </span>
+                        <span>
+                            {new Date(post.data.pubDate).toLocaleDateString(
+                                "en-US",
+                                {
+                                    month: "short",
+                                    day: "2-digit",
+                                },
+                            )}
+                        </span>
+                        <a
+                            href={`/posts/${post.slug}/`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="underline pl-2"
+                        >
+                            {post.data.filetitle}.md
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
 </body>
